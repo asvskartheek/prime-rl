@@ -1,0 +1,20 @@
+max_steps = 100
+batch_size = 512
+micro_batch_size = 4
+rollouts_per_prompt = 16
+seq_len = 2048
+mask_truncated_completions = false
+
+[model]
+name = "willcb/Qwen2.5-7B-Wordle-SFT"
+
+[monitor.wandb]
+
+[environment]
+id = "wordle"
+
+[monitor.wandb.log_samples]
+interval = 10
+num_samples = 16
+
+[ckpt]

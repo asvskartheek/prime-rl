@@ -1,0 +1,11 @@
+max_steps = 100
+
+[monitor.wandb]
+
+[model]
+name = "willcb/Qwen2.5-7B-Wordle-SFT"
+
+[optim]
+lr = 1e-6
+
+[ckpt]

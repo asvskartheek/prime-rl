@@ -1,0 +1,3 @@
+[model]
+name = "willcb/Qwen2.5-7B-Wordle-SFT"
+max_model_len = 2048

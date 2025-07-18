@@ -1,6 +1,7 @@
 import verifiers as vf
 from datasets import load_dataset
 from verifiers import Environment
+from verifiers.envs.textarena_env import TextArenaEnv
 
 
 def load_gsm8k_environment(env_args: dict = {}) -> Environment:
@@ -464,6 +465,14 @@ def load_pydantic_adherence_environment(env_args: dict = {}) -> Environment:
 
     return vf_env
 
+def load_wordle_environment(env_args: dict = {}) -> Environment:
+    vf_env = TextArenaEnv(
+        game="Wordle-v0",
+        num_train_examples=2000, 
+        num_eval_examples=20,
+    )
+
+    return vf_env
 
 REGISTRY = {
     "gsm8k": load_gsm8k_environment,
@@ -473,6 +482,7 @@ REGISTRY = {
     "unscramble": load_unscramble_environment,
     "ascii-tree": load_ascii_tree_environment,
     "pydantic-adherence": load_pydantic_adherence_environment,
+    "wordle": load_wordle_environment,
 }
 
 

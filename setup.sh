@@ -1,4 +1,16 @@
-main () {
+#!/usr/bin/env bash
+
+set -e
+
+# Colors for output
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+log_info() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+main() {
 
     log_info "Updating apt..."
     sudo apt update
@@ -40,4 +52,4 @@ main () {
     --inference @ configs/inference/wordle.toml
 }
 
-main()
+main

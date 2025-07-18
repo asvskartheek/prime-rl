@@ -33,6 +33,7 @@ main() {
 
     log_info "Installing dependencies in virtual environment..."
     uv sync && uv sync --extra fa
+    uv add nltk textarena
     log_info "Installation completed!"
 
     log_info "Logging into wandb..."
@@ -44,17 +45,14 @@ main() {
     log_info "Setting ulimit for open files..."
     ulimit -n 32000
 
-    log_info "Setting up tmux session..."
-    bash scripts/tmux.sh
+    # log_info "Setting up tmux session..."
+    # bash scripts/tmux.sh
 
-    log_info "Install other dependencies..."
-    uv add nltk textarena
-
-    log_info "Starting Wordle training..."
-    uv run rl \
-    --trainer @ configs/trainer/wordle.toml \
-    --orchestrator @ configs/orchestrator/wordle.toml \
-    --inference @ configs/inference/wordle.toml
+    # log_info "Starting Wordle training..."
+    # uv run rl \
+    # --trainer @ configs/trainer/wordle.toml \
+    # --orchestrator @ configs/orchestrator/wordle.toml \
+    # --inference @ configs/inference/wordle.toml
 }
 
 main

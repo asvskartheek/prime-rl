@@ -11,6 +11,11 @@ log_info() {
 }
 
 main() {
+    # Check if sudo is installed
+    if ! command -v sudo &> /dev/null; then
+        apt update
+        apt install sudo -y
+    fi
 
     log_info "Updating apt..."
     sudo apt update
